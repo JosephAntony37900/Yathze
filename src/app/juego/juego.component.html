@@ -1,0 +1,23 @@
+<div class="juego">
+    <h1>Juego de Dados - Yatzy</h1>
+    <button (click)="lanzarDados()">Lanzar Dados</button>
+    
+    <div class="dados">
+      <app-die *ngFor="let dado of dados" [valor]="dado"></app-die>
+    </div>
+    
+    <h2>Objetivos Menores</h2>
+    <ul>
+      <li *ngFor="let objetivo of objetivosMenores" (click)="seleccionarObjetivo(objetivo)">
+        {{ objetivo }}
+      </li>
+    </ul>
+  
+    <h2>Objetivos Mayores</h2>
+    <ul>
+      <li *ngFor="let objetivo of objetivosMayores" (click)="seleccionarObjetivo(objetivo)">
+        {{ objetivo }}
+      </li>
+    </ul>
+  </div>
+  

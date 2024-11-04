@@ -1,20 +1,31 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JuegoComponent } from './juego/juego.component';
+import { DieComponent } from './die/die.component';
+import { FinalizarDialogoComponent } from './finalizar-dialogo/finalizar-dialogo.component';
+
+const routes: Routes = [
+  { path: 'jugar', component: JuegoComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'jugar' }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JuegoComponent,
+    DieComponent,
+    FinalizarDialogoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
